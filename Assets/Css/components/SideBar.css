@@ -1,0 +1,33 @@
+
+aside {
+    float: left;
+    width: 18%;
+    padding-right: 20px;
+    height: 77.9vh; /* Alteração feita aqui */
+}
+
+aside ul {
+    list-style-type: none;
+    background: #0c5da8;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Alteração opcional, dependendo do que você deseja */
+}
+
+aside a {
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    display: block;
+}
+
+aside li {
+    text-align: center;
+}
+
+aside a:hover {
+    background-color: #186bb9;
+    color: white;
+}
+

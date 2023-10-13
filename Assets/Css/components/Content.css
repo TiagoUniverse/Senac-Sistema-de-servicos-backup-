@@ -1,0 +1,171 @@
+/*
+.row {
+    padding: 0 20px;
+    display:table;
+    width: 95%;
+  }
+  */
+
+  /* .row {
+    background-color: white;
+  } */
+
+  section {
+    float: right;
+    width: 75%;
+  }
+  
+  .card {
+    background: #fffdfd;
+    /* background: #f3f1f1; */
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  #content_inicio {
+    width: 45%;
+  }
+  
+  .content_inicioText {
+    text-align: center;
+  }
+  
+  
+  .content_textLeft {
+    text-align: left;
+  }
+  
+  .status_user {
+    height: 5mm;
+    margin-right: 1mm;
+    margin-bottom: 1mm;
+  }
+  
+  .status_user_pendente {
+    height: 5mm;
+    margin-right: 1mm;
+    margin-bottom: 1mm;
+  }
+  
+  #user_name {
+    color: rgba(240, 45, 20, 0.87);
+  }
+  
+  #username{
+    color:#042646;
+    font-weight: bold;
+    /* margin-left: 1cm; */
+  }
+
+
+  #username_Aceite{
+    color:#042646;
+    font-weight: bold;
+    margin-left: 37cm;
+  }
+
+
+  
+  .fundoVerde{
+    background-color: green;
+  }
+
+  .textoVerde{
+    color: green;
+  }
+  
+  .fundoVermelho{
+    background-color: rgb(211, 9, 9);
+  }
+  
+  .textoVermelho{
+    color: red;
+  }
+  
+
+  #checkbox{
+    margin-left: 15cm;
+    margin-top:0.5cm; 
+    margin-bottom:1cm;
+  }
+
+  #button_expanded{
+    /* width:-webkit-fill-available; */
+    /* margin-left: 13cm;
+    width: 7cm;
+    margin-bottom: 0.3cm; */
+    margin: 0 auto;
+
+    
+  }
+
+
+  
+  #ativo_inativo{
+    margin-left: 25cm;
+  }
+  
+  #text-left{
+    text-align: left;
+  }
+
+  #formulario_entrada{
+    height: 2.2cm;
+  }
+
+
+  .input_emailAlterarSenha{
+    justify-content:center; 
+    display: flex;
+  }
+
+
+  #buton_Listar{
+    background-color: #F7941D;
+  }
+
+  #buton_Filtro{
+    background-color: #3a5fbd;
+    color: white;
+  }
+
+  #buton_MaisOpcoes{
+    background-color: rgb(240, 35, 35);
+    color: white;
+  }
+
+  #buton_MaisOpcoes_FimProcesso{
+    background-color: rgb(37, 155, 1);
+    color: white;
+  }
+
+
+  /* PAGINAÇÃO || PAGINACAO */
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .pagination-link {
+    height: 1cm;
+    width: 2cm;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    margin-bottom: 30px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+
+  .pagination-link.active {
+    background-color: #337ab7;
+    color: #fff;
+  }
+
+  .pagination-link:hover {
+    background-color: #ddd;
+  }

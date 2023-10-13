@@ -1,0 +1,16 @@
+
+.Filtro_Cor {
+    color: rgb(0, 0, 0);
+  }
+  
+  .Filtro_Label {
+   
+    font-weight: bold;
+  }
+  
+  #Filtro_botao {
+    background-color: rgb(63, 122, 231);
+    color: white;
+    margin-top: 1cm;
+    width: 7cm;
+  }

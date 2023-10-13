@@ -1,0 +1,21 @@
+#img_login {
+  margin-top: 41px;
+  margin-left: 18px;
+  height: 12.5cm;
+}
+
+#login_title {
+  text-align: center;
+  margin-bottom: 0 !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem;
+  margin-left: 0.5999999999999996cm;
+
+}
+
+
+#botao-voltar{
+  border: none;
+  background-color: white;
+  margin-bottom: 25px;
+}

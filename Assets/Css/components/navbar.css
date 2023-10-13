@@ -1,0 +1,78 @@
+nav ul {
+  list-style-type: none;
+  background: #F7941D;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 16px;
+  display: block;
+}
+
+nav li {
+  float: left;
+}
+
+nav a:hover {
+  background-color: #eba958;
+  color: white;
+}
+
+/* NavBar Position fixed  */
+.NavBarFixado {
+  position: fixed;
+}
+
+
+/* NavBar IMG */
+.ImagemDoNavBar {
+  border-radius: 100%;
+
+  width: 60px;
+  height: 60px;
+}
+
+.NameBlockNavBar {
+  display: block;
+  background: #3c70ca;
+  position: fixed;
+  margin-left: 37.5cm;
+  margin-bottom: 5px;
+  height: 80px;
+
+}
+
+/* Cor do texto da NavBar  */
+#offcanvasNavbarDropdown {
+  color: rgb(26, 47, 80);
+}
+
+.NameBlockNavBar:hover {
+  background: #7c9fdb;
+}
+
+.MostrarPerfil:hover {
+  background: #7c9fdb;
+}
+
+/* Horizontal NavBar */
+#navbar {
+  background-color: #396CC4;
+
+}
+
+.drop-down
+{
+  color:white; 
+  margin-left:15px;
+}
+
+#drop-down-item
+{
+  background-color: #74a0ec;
+}
+
