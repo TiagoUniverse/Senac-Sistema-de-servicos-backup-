@@ -161,36 +161,9 @@ from
         [updated]			DATETIME              NULL,
 
 		idUsuario			INT NOT NULL,
-		idTemplate_Emails	INT NOT NULL,
 
-		FOREIGN KEY (idUsuario)			REFERENCES	Usuario		(id),
-		FOREIGN KEY (idTemplate_Emails)		REFERENCES	Template_Emails	(id)
+		FOREIGN KEY (idUsuario)			REFERENCES	Usuario		(id)
     );
-
-
-    /**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ INSERT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-    INSERT INTO [Criacao_email]
-        ([nome_criador], idUsuario) 
-    VALUES 
-        ('' , ''); 
-
-
-	/**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ SELECT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-		Select
-			*
-		from
-			Criacao_email
-		Where
-			status = 1;
-
 
   /**
      * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -204,31 +177,16 @@ from
     CREATE TABLE [Colaborador] (
         [id]							INT IDENTITY(1,1)		NOT NULL PRIMARY KEY,
 		[id_criptografado]				VARCHAR		(300)			NULL DEFAULT '' ,
-		[nome]							VARCHAR		(200)		NOT NULL DEFAULT '',
+		[nome]							VARCHAR		(300)		NOT NULL DEFAULT '',
 		[cpf]							VARCHAR		(300)		NOT NULL DEFAULT '',
-		[dataNascimento]				DATE					NOT NULL,
-		[email_pessoal]					VARCHAR		(200)		NOT NULL DEFAULT '',
-		[email_institucional]			VARCHAR		(200)		    NULL DEFAULT '',
-		[motivo_solicitacao]			VARCHAR		(500)		    NULL DEFAULT '',
-		[telefone]						VARCHAR		(200)		NOT NULL DEFAULT '',
-		[chapa]							VARCHAR		(200)		NOT NULL DEFAULT '',
-		[funcao]						VARCHAR		(200)		NOT NULL DEFAULT '',
-		[gerencia]						VARCHAR		(200)		NOT NULL DEFAULT '',
-		[setor]							VARCHAR		(200)		NOT NULL DEFAULT '',
-		[ramal]							VARCHAR		(200)		    NULL DEFAULT '',
-		[rua]							VARCHAR		(200)		NOT NULL DEFAULT '',
-		[numero_endereco]				VARCHAR		(200)		NOT NULL DEFAULT '',
-		[bairro]						VARCHAR		(200)		NOT NULL DEFAULT '',
-		[HorarioTrabalho]				VARCHAR	    (300)		NOT NULL DEFAULT '',
-		[observacao]					VARCHAR		(300)		NOT NULL DEFAULT '',
-		[status]						INT						NOT NULL DEFAULT '',
+		[email_pessoal]					VARCHAR		(300)		NOT NULL DEFAULT '',
+		[telefone]						VARCHAR		(300)		NOT NULL DEFAULT '',
+		[status]						VARCHAR		(200)		NOT NULL DEFAULT 'ATIVO',
 		[created]						DATETIME				NOT NULL DEFAULT '',
 		[updated]						DATETIME				    NULL DEFAULT '',
-		[description]					VARCHAR    (1000)		NOT NULL DEFAULT '',
 
-
-		[idUnidade]						INT				  NOT NULL,
-		FOREIGN KEY([idUnidade])			REFERENCES Unidade(id),
+		[idServicos]						INT				  NOT NULL,
+		FOREIGN KEY([idServicos])			REFERENCES Servicos(id)
 
     );
 
