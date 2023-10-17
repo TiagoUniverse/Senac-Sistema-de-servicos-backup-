@@ -10,17 +10,16 @@
  * ║  │ a menos que seja obtida permissão prévia por escrito do SENAC PERNAMBUCO.                                   │  ║
  * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
  * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
- * ║  │ @description: This system is responsible for registering new employees and creating your SENAC				│  ║
- * ║  |	institutional email                                                                                         │  ║
+ * ║  │ @description: A system to create services and manage them										            │  ║
  * ║  │ @author: Tiago César da Silva Lopes                                                                         │  ║
- * ║  │ @date 12/11/22                                                                                              │  ║
+ * ║  │ @date 17/10/23                                                                                              │  ║
  * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
  * ║═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════║
  * ║                                                     UPGRADES                                                      ║
  * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
- * ║  │ 1. @date: 19/01/23                                                                                          │  ║
- * ║  │    @description Adding time to the days of the week of the 'Colaborador'                                    │  ║
- * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║																										   ║
+ * ║  │ 1. @date:			                                                                                        │  ║
+ * ║  │    @description															                                    │  ║
+ * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
  * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
  */
 
@@ -190,13 +189,6 @@ from
 
     );
 
-	
-    /**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ INSERT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-
 /**	=================================================================================================================== **/
 
  /**
@@ -205,16 +197,14 @@ from
      * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
      *
      * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ @description: The record and timeline from all the operations with the new workers                            │
+     * │ @description: Timeline of an Colaborador											                           │
      * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
      */
     CREATE TABLE [Timeline](
         [id]				INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-		[nome]				VARCHAR(1000)     NOT NULL DEFAULT '',
-		[id_funcionario]	INT				      NULL,
+		[descricao]			VARCHAR(1000)     NOT NULL DEFAULT '',
         [created]			DATETIME          NOT NULL DEFAULT GETDATE(),
 
-		
 		[idColaborador]		INT				  NOT NULL,
 		[idStatusTimeline]	INT				  NOT NULL,
 
@@ -230,16 +220,9 @@ from
      * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
      */
     INSERT INTO [Timeline]
-        ([nome], [id_funcionario] , [idColaborador] , [idStatusTimeline] ) 
+        ([descricao], [idColaborador] , [idStatusTimeline] ) 
     VALUES 
-        ('' , '' , '' , ''); 
-
-
-	/**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ SELECT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
+        ('' , '' , ''); 
 
 /**	=================================================================================================================== **/
 
@@ -256,8 +239,7 @@ from
         [id]				INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 		[descricao]			VARCHAR(1000)     NOT NULL DEFAULT '',
         [created]			DATETIME          NOT NULL DEFAULT GETDATE(),
-        [updated]			DATETIME              NULL,
-
+        [updated]			DATETIME              NULL
     );
 
  /**
@@ -271,19 +253,83 @@ from
         ('Conclusão da operação'); 
 
 
-	/**
+/**	=================================================================================================================== **/
+
+ /**
+     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+     * ║ 8-                                             Status_TemplateEmail                                           ║
+     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+     *
      * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ SELECT                                                                                                        │
+     * │ @description: Status de um template de email que vai ser disparado						                       │
      * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
      */
+    CREATE TABLE [Status_TemplateEmail] (
+        [id]					INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
+		[nome]					VARCHAR(300)	   NOT NULL DEFAULT '',
+		[created]			DATETIME          NOT NULL DEFAULT GETDATE(),
+        [updated]			DATETIME              NULL
 
+    );
 
 
 /**	=================================================================================================================== **/
 
  /**
      * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 8-                                             ENVIO_EMAILS                                                   ║
+     * ║ 9-                                             Email_Destinatario	                                           ║
+     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+     *
+     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+     * │ @description: Status de um template de email que vai ser disparado						                       │
+     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+     */
+    CREATE TABLE [Email_Destinatario] (
+        [id]					INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
+		[email]					VARCHAR(300)	   NOT NULL DEFAULT '',
+		[status]				VARCHAR(300)	   NOT NULL DEFAULT 'ATIVO',
+		[created]			DATETIME          NOT NULL DEFAULT GETDATE(),
+        [updated]			DATETIME              NULL,
+
+		[idTemplate_Email]	INT NOT NULL,
+
+		FOREIGN KEY ([idTemplate_Email]) REFERENCES Template_Email([id])
+
+    );
+
+
+/**	=================================================================================================================== **/
+
+ /**
+     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+     * ║ 10-                                             Template_Email		                                           ║
+     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+     *
+     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+     * │ @description: Template for an email													                       │
+     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+     */
+    CREATE TABLE [Template_Email] (
+        [id]					INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
+		[descricao]				VARCHAR(MAX)	   NOT NULL DEFAULT '',
+		[status]				VARCHAR(300)	   NOT NULL DEFAULT 'ATIVO',
+		[created]				DATETIME          NOT NULL DEFAULT GETDATE(),
+        [updated]				DATETIME              NULL,
+
+		[idStatus_TemplateEmail]	INT NOT NULL,
+		[idServicos]				INT NOT NULL,
+
+		FOREIGN KEY ([idStatus_TemplateEmail]) REFERENCES Status_TemplateEmail([id]),
+		FOREIGN KEY ([idServicos]) REFERENCES Servicos([id])
+
+    );
+
+
+/**	=================================================================================================================== **/
+
+ /**
+     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+     * ║ 11-                                             ENVIO_EMAILS                                                   ║
      * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
      *
      * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -301,9 +347,9 @@ from
         [status_enviado]    	INT			      NOT NULL DEFAULT '0',
 		[data_cadastroEmail]			DATETIME		  NOT NULL DEFAULT GETDATE(),
 
-		[idColaborador]		INT				  NOT NULL,
+		[idTemplate_Email]		INT				  NOT NULL,
 
-		FOREIGN KEY([idColaborador])			REFERENCES Colaborador(id)
+		FOREIGN KEY([idTemplate_Email])			REFERENCES Template_Email(id)
 
     );
 
@@ -312,110 +358,7 @@ from
 
  /**
      * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 9-                                             CodigoEtica_Colaborador                                        ║
-     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-     *
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ @description: Tabela de solicitação do código de ética de um colaborador				                       │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-    CREATE TABLE [CodigoEtica_Colaborador] (
-        [id]					INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
-		[id_criptografia]		VARCHAR(300)		   NULL DEFAULT '',
-		[nome]					VARCHAR(300)	   NOT NULL DEFAULT '',
-		[cpf]					VARCHAR(300)	   NOT NULL DEFAULT '',
-		[email]					VARCHAR(300)	   NOT NULL DEFAULT '',
-		[telefone]				VARCHAR(300)	   NOT NULL DEFAULT '',
-		[dataAceite]			DATETIME		       NULL DEFAULT '',
-		[nome_arquivo]			VARCHAR(max)	   NOT NULL DEFAULT '',
-		[status]				INT				   NOT NULL DEFAULT '1',
-		[created]				DATETIME		   NOT NULL DEFAULT GETDATE(),
-		[updated]				DATETIME			   NULL DEFAULT '',
-		[idUsuario]				INT				NOT NULL,
-
-		FOREIGN KEY([idUsuario]) REFERENCES Usuario(id)
-
-    );
-
-	
-    /**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ INSERT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-	 Insert INTO CodigoEtica_Colaborador (nome, cpf, email) Values
-	 ('', '', '');
-
-
-/**	=================================================================================================================== **/
-
- /**
-     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 10-                                             Timeline_CodigoEtica	                                       ║
-     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-     *
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ @description: Timeline do código de ética												                       │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-    CREATE TABLE [Timeline_CodigoEtica] (
-        [id]						INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
-		[descricao]					VARCHAR(300)	   NOT NULL DEFAULT '',
-		[created]					DATETIME		   NOT NULL DEFAULT GETDATE(),
-		[idUsuario]					INT				NOT NULL,
-		[idCodigoEtica_Colaborador]	INT				NOT NULL,
-		[idStatusTimeline_CodigoEtica] INT			NOT NULL,
-
-		FOREIGN KEY([idUsuario]) REFERENCES Usuario(id),
-		FOREIGN KEY([idCodigoEtica_Colaborador]) REFERENCES CodigoEtica_Colaborador([id]),
-		FOREIGN KEY ([idStatusTimeline_CodigoEtica]) REFERENCES StatusTimeline
-
-    );
-
-	
-    /**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ INSERT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-	 Insert INTO [Timeline_CodigoEtica] (descricao, idUsuario, idCodigoEtica_Colaborador, idStatusTimeline_CodigoEtica) Values
-	 ('', '' , '');
-
-
-/**	=================================================================================================================== **/
-
- /**
-     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 11-                                             StatusTimeline_CodigoEtica	                                   ║
-     * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-     *
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ @description: Status da timeline do código de ética									                       │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-    CREATE TABLE [StatusTimeline_CodigoEtica] (
-        [id]						INT IDENTITY(1,1)  NOT NULL PRIMARY KEY,
-		[descricao]					VARCHAR(300)	   NOT NULL DEFAULT '',
-		[created]					DATETIME		   NOT NULL DEFAULT GETDATE(),
-		[updated]					DATETIME				NULL
-
-    );
-
-	
-    /**
-     * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ INSERT                                                                                                        │
-     * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-     */
-	 Insert INTO [StatusTimeline_CodigoEtica] (descricao) Values
-	 ('');
-
-
-/**	=================================================================================================================== **/
-
- /**
-     * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 12-                                             Envio_Emails_CodigoEtica	                                   ║
+     * ║ 12-                                             Anexo						                                   ║
      * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
      *
      * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -433,9 +376,9 @@ from
         [status_enviado]    	INT			      NOT NULL DEFAULT '0',
 		[data_cadastroEmail]	DATETIME		  NOT NULL DEFAULT GETDATE(),
 
-		[idCodigoEtica_Colaborador]	INT				NOT NULL,
+		[idTemplate_Email]		INT				  NOT NULL,
 
-		FOREIGN KEY([idCodigoEtica_Colaborador]) REFERENCES CodigoEtica_Colaborador([id])
+		FOREIGN KEY([idTemplate_Email])			REFERENCES Template_Email(id)
 
     );
 
