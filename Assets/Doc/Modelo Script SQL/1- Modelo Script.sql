@@ -1,6 +1,7 @@
+
 /**
  * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
- * ║                                                   NOME DO SISTEMA                                                 ║
+ * ║                                               Sistema de Serviços                                                 ║
  * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
  * ║  │ NOTA: Todas as informações contidas neste documento são propriedade do SENAC PERNAMBUCO e seus fornecedores,│  ║
  * ║  │ caso existam. Os conceitos intelectuais e técnicos contidos são propriedade do SENAC PERNAMBUCO e seus      │  ║
@@ -19,42 +20,9 @@
  * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
  * ║  │ 1. @date: 19/01/23                                                                                          │  ║
  * ║  │    @description Adding time to the days of the week of the 'Colaborador'                                    │  ║
- * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
- * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
- * ║  │ 2. @date: 13/02/23                                                                                          │  ║
- * ║  │    @description: Employee time changed									                                    │  ║
- * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
- * ║  ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐  ║
- * ║  │ 3. @date: 05/10/23                                                                                          │  ║
- * ║  │    @description: Addind section about the 'Código de ética'									                │  ║
- * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║
- * ║																												   ║
+ * ║  └─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘  ║																										   ║
  * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
  */
-
-/**	=================================================================================================================== **/
-/* TOTVS */
-/*
-select *,month( cast(DATAADMISSAO as date))  from TOTVS 
-        where len(DATAADMISSAO) = 10 
-        and year( cast(DATAADMISSAO as date)) = year(getdate()) 
-        and month( cast(DATAADMISSAO as date)) >= month(getdate() ) - 1
-		*/
-
-
-/**
-select 
-	  distinct *,month( cast(DATAADMISSAO as date)) 
-from 
-	TOTVS
-Where
-	year(cast(DATAADMISSAO as date)) = (2023)
-	and month( cast(DATAADMISSAO as date)) >= (3)
-order by 
-	(DATAADMISSAO) desc
-
-
-**/
 
     /**
      * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -75,10 +43,9 @@ order by
 		[dataNascimento]				DATE			  NOT NULL DEFAULT '',
 		[telefone]						VARCHAR(200)      NOT NULL DEFAULT '',
 		[trocarSenha]					TINYINT			  NOT NULL DEFAULT '0',
-		[status]						INT               NOT NULL DEFAULT '1',
+		[status]						VARCHAR(200)      NOT NULL DEFAULT 'ATIVO',
         [created]						DATETIME          NOT NULL DEFAULT GETDATE(),
         [updated]						DATETIME              NULL,
-		[description]					VARCHAR(1000)     NOT NULL DEFAULT '',
 
 		[idNivelDeAcesso]				INT				  NOT NULL,
 		[idUnidade]						INT				  NOT NULL,
@@ -112,11 +79,9 @@ Insert into [Usuario]
     CREATE TABLE [Unidade](
         [id]				INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 		[nome]				VARCHAR(200)      NOT NULL DEFAULT '',
-		[descricao]			VARCHAR(1000)	  NOT NULL DEFAULT '',
-        [status]			INT               NOT NULL DEFAULT '1',
+        [status]			VARCHAR(200)      NOT NULL DEFAULT 'ATIVO',
         [created]			DATETIME          NOT NULL DEFAULT GETDATE(),
-        [updated]			DATETIME              NULL,
-		[description]		VARCHAR(1000)     NOT NULL DEFAULT '',
+        [updated]			DATETIME              NULL
     );
 
 	
@@ -145,11 +110,9 @@ Insert into [Usuario]
     CREATE TABLE [NivelDeAcesso](
         [id]				INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 		[nome]				VARCHAR(1000)     NOT NULL DEFAULT '',
-		[descricao]			VARCHAR(1000)	  NOT NULL DEFAULT '',
-        [status]			INT               NOT NULL DEFAULT '1',
+        [status]			VARCHAR(200)      NOT NULL DEFAULT 'ATIVO',
         [created]			DATETIME          NOT NULL DEFAULT GETDATE(),
-        [updated]			DATETIME              NULL,
-		[description]		VARCHAR(1000)     NOT NULL DEFAULT '',
+        [updated]			DATETIME              NULL
     );
 
 
@@ -182,26 +145,26 @@ from
 
  /**
      * ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-     * ║ 4-                                          Criacao_email		                                               ║
+     * ║ 4-                                          Servicos			                                               ║
      * ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
      *
      * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-     * │ @description: Its stores when an institucional e-mail was created by an 'Support GTI' worker                  │
+     * │ @description: Table of registers of services that the RH can use							                   │
      * └───────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
      */
-    CREATE TABLE [Criacao_email](
+    CREATE TABLE [Servicos](
         [id]				INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-		[nome_criador]		VARCHAR(300)      NOT NULL DEFAULT '',
-		[nome_Colaborador]	VARCHAR(300)	  NOT NULL DEFAULT '',
-        [status]			INT               NOT NULL DEFAULT '1',
+		[nome]				VARCHAR(MAX)	  NOT NULL DEFAULT '',
+		[descricao]			VARCHAR(MAX)	  NOT NULL DEFAULT '',
+        [status]			VARCHAR(200)      NOT NULL DEFAULT 'ATIVO',
         [created]			DATETIME          NOT NULL DEFAULT GETDATE(),
         [updated]			DATETIME              NULL,
-		[description]		VARCHAR(1000)     NOT NULL DEFAULT '',
-		idUsuario			INT				  NOT NULL,
-		idColaborador		INT				  NOT NULL
+
+		idUsuario			INT NOT NULL,
+		idTemplate_Emails	INT NOT NULL,
 
 		FOREIGN KEY (idUsuario)			REFERENCES	Usuario		(id),
-		FOREIGN KEY (idColaborador)		REFERENCES	Colaborador	(id)
+		FOREIGN KEY (idTemplate_Emails)		REFERENCES	Template_Emails	(id)
     );
 
 

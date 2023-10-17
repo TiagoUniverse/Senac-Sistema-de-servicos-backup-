@@ -1,0 +1,100 @@
+{
+  "background_color": "#ffffff",
+  "description": "Sistema de termos de aceite e criação de e-mails corporativos de novos colaboradores do Senac, de acordo com a respectiva unidade",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "Termos de Aceite",
+  "orientation": "portrait",
+  "short_name": "Termos Aceite",
+  "start_url": "/Termo-de-compromisso/src/View/login.php",
+  "scope": "/Termo-de-compromisso/" ,
+  "theme_color": "#ffffff",
+  "categories": [
+    "business",
+    "navigation",
+    "personalization",
+    "productivity",
+    "security",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Doc/Design%20dos%20WebSites/Outubro/27-10/Nova%20template%20responsivo.png",
+      "sizes": "1917x1039",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "New responsive template"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Doc/Design%20dos%20WebSites/Agosto/09-08/nivel%20de%20acesso%20tela%20inicial.png",
+      "sizes": "1907x959",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Old template in the beginning"
+    }
+  ],
+  "icons": [
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/mstile-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/mstile-150x150.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www5.pe.senac.br/Termo-de-compromisso/Assets/Icons/android-launchericon-512-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [],
+  "lang": "pt",
+  "iarc_rating_id": "18",
+  "prefer_related_applications": false,
+  "display_override": [
+    "fullscreen"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://intranet.pe.senac.br/dr/intranet.net/",
+      "id": "Intranet"
+    }
+  ],
+  "share_target": {
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+  
+}
