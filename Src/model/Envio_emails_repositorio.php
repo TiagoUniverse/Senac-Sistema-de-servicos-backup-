@@ -3,7 +3,7 @@
 /**
  * Classe: Envio_emails_repositorio
  * Objetivo: Repositorio do envio_emails
- * Data: 28/02/23
+ * Data: 18/10/23
  */
 
 namespace model;

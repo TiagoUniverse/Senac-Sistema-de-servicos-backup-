@@ -36,6 +36,7 @@
         [id]							INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 		[nome]							VARCHAR(200)      NOT NULL DEFAULT '',
 		[nomeSobrenome]					VARCHAR(200)      NOT NULL DEFAULT '',
+		[administrador]					TINYINT			      NULL DEFAULT '',
 		[email]							VARCHAR(200)      NOT NULL DEFAULT '',
 		[senha]							VARCHAR(200)	  NOT NULL DEFAULT '',
 		[cpf]							VARCHAR(200)	  NOT NULL DEFAULT '',
@@ -63,6 +64,10 @@
 Insert into [Usuario]
 	(nome, nomeSobrenome, email, senha , cpf, dataNascimento, telefone) values
 	('' , '' , '' , HASHBYTES('sha1', '') , '' , '' , '')
+
+	Insert into [Usuario]
+	(nome, nomeSobrenome, email, senha , cpf, dataNascimento, telefone, idUnidade) values
+	('Tiago' , 'Tiago César' , 'tiagocesar68@gmail.com' , HASHBYTES('sha1', 'senha') , '71240924429' , '05/10/2001' , '40028922', 1)
 
 /**	=================================================================================================================== **/
 

@@ -155,7 +155,7 @@ if (isset($_POST['email']) == true && isset($_POST['senha']) == true) {
 
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <i class="fas fa-cubes fa-2x me-3 logo-color"></i>
-                        <span id="login_title">Termo de compromisso</span>
+                        <span id="login_title">Sistema de Serviços</span>
                       </div>
 
                       <!-- <span id="login_title">Termos de aceite</span> -->
